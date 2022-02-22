@@ -1,0 +1,25 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:table="sap.ui.table" xmlns:smartField="sap.ui.comp.smartfield" xmlns="sap.m">
+    <table:Column width="250px">
+        <Label text="{/#ZOTC_C_ARIA_ORDERSType/ship_to/@sap:label}"/>
+        <table:customData>
+            <core:CustomData key="p13nData" value="\{&quot;columnKey&quot;: &quot;ship_to&quot;, &quot;columnIndex&quot;: &quot;1&quot;}"/>
+        </table:customData>
+        <table:template>
+            <!-- <ComboBox width="100%" selectedKey="{ship_to}" showSecondaryValues="true" items="{path: '/C_SoldToValueHelp', templateShareable: false}">
+                <core:ListItem key="{Customer}" text="{Customer}" additionalText="{CustomerName}"/>
+            </ComboBox> -->
+            <smartField:SmartField value="{ship_to}"/>
+        </table:template>
+    </table:Column>
+    <table:Column>
+        <Label text="{/#ZOTC_C_ARIA_ORDERSType/trial_rule/@sap:label}"/>
+        <table:customData>
+            <core:CustomData key="p13nData" value="\{&quot;columnKey&quot;: &quot;trial_rule&quot;, &quot;columnIndex&quot;: &quot;8&quot;}"/>
+        </table:customData>
+        <table:template>
+            <Select forceSelection="false" selectedKey="{trial_rule}" showSecondaryValues="true" items="{path: '/ZOTC_I_REGEL_VH', templateShareable: false}">
+                <core:ListItem key="{trial_rule}" text="{trial_rule}" additionalText="{description}"/>
+            </Select>
+        </table:template>
+    </table:Column>
+</core:FragmentDefinition>
