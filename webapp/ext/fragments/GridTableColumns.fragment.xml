@@ -5,9 +5,6 @@
             <core:CustomData key="p13nData" value="\{&quot;columnKey&quot;: &quot;ship_to&quot;, &quot;columnIndex&quot;: &quot;1&quot;}"/>
         </table:customData>
         <table:template>
-            <!-- <ComboBox width="100%" selectedKey="{ship_to}" showSecondaryValues="true" items="{path: '/C_SoldToValueHelp', templateShareable: false}">
-                <core:ListItem key="{Customer}" text="{Customer}" additionalText="{CustomerName}"/>
-            </ComboBox> -->
             <smartField:SmartField value="{ship_to}"/>
         </table:template>
     </table:Column>
@@ -20,6 +17,15 @@
             <Select forceSelection="false" selectedKey="{trial_rule}" showSecondaryValues="true" items="{path: '/ZOTC_I_REGEL_VH', templateShareable: false}">
                 <core:ListItem key="{trial_rule}" text="{trial_rule}" additionalText="{description}"/>
             </Select>
+        </table:template>
+    </table:Column>
+    <table:Column width="130px">
+        <Label text="{/#ZOTC_C_ARIA_ORDERSType/renew_date/@sap:label}"/>
+        <table:customData>
+            <core:CustomData key="p13nData" value="\{&quot;columnKey&quot;: &quot;renew_date&quot;, &quot;columnIndex&quot;: &quot;12&quot;}"/>
+        </table:customData>
+        <table:template>
+            <smartField:SmartField value="{renew_date}" editable="true"/>
         </table:template>
     </table:Column>
 </core:FragmentDefinition>
