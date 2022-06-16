@@ -19,7 +19,7 @@
             </Select>
         </table:template>
     </table:Column>
-    <table:Column width="130px">
+    <table:Column width="150px">
         <Label text="{/#ZOTC_C_ARIA_ORDERSType/renew_date/@sap:label}"/>
         <table:customData>
             <core:CustomData key="p13nData" value="\{&quot;columnKey&quot;: &quot;renew_date&quot;, &quot;columnIndex&quot;: &quot;12&quot;}"/>

@@ -1,10 +1,11 @@
 sap.ui.define(
-  ["sap/m/MessageBox", "sap/m/MessageToast"],
-  function (MessageBox, MessageToast) {
+  ["sap/m/MessageBox", "sap/m/MessageToast", "sap/ui/core/format/DateFormat"],
+  function (MessageBox, MessageToast, DateFormat) {
     "use strict";
 
     let _sIdPrefix;
     let _sDefferedId = new Date().getTime().toString();
+    let _oDateFormat = DateFormat.getDateInstance({ pattern: "yyyyMMdd" });
 
     return {
       onInit: function () {
@@ -56,13 +57,18 @@ sap.ui.define(
         const oPlugins = oTable.getPlugins()[0];
         const aSelectedIndex = oPlugins.getSelectedIndices();
         let sVbelnPosnr = "";
-        let oContext, oRowData;
+        let oContext, oRowData, sDate;
 
         for (let i = 0, iLen = aSelectedIndex.length; i < iLen; i++) {
           oContext = oTable.getContextByIndex(aSelectedIndex[i]);
           oRowData = oContext.getObject() || null;
+          sDate = "";
 
-          sVbelnPosnr += `${oRowData.vbeln}-${oRowData.posnr}-${oRowData.ship_to}-${oRowData.trial_rule}|`;
+          if (oRowData.renew_date) {
+            sDate = _oDateFormat.format(oRowData.renew_date);
+          }
+
+          sVbelnPosnr += `${oRowData.vbeln}-${oRowData.posnr}-${oRowData.ship_to}-${oRowData.trial_rule}-${sDate}|`;
         }
 
         // start busy indicator
